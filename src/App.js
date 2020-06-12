@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  let [isLit, setLit] = useState(true);
+  let [temperature, setTemperature] = useState(22);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`room ${isLit ? "lit" : "dark"}`}>
+      The Room Light is {isLit ? "ON" : "OFF"}
+      <br />
+      <button onClick={() => {setLit(true); isLit = true;}}>
+        ON
+      </button>
+      <button onClick={() => {setLit(false); isLit = false;}}>
+        OFF
+      </button>
+
+      <div>
+        Temperature = {temperature} C
+        <br/>
+        <button onClick={() => setTemperature(temperature - 1)}>
+          -
+        </button>
+        <button onClick={() => setTemperature(temperature + 1)}>
+          +
+        </button>
+      </div>
     </div>
-  );
+
+    
+    );
 }
 
 export default App;
