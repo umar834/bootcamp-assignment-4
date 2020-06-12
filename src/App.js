@@ -17,7 +17,7 @@ function App() {
       </button>
 
       <div>
-        Temperature = {temperature} C
+        Temperature : {temperature} °C
         <br/>
         <button onClick={() => setTemperature(temperature - 1)}>
           -
